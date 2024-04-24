@@ -39,6 +39,8 @@ function displayFood1() {
 
 displayFood1()
 
+console.log('test')
+
 function displayFavoriteFoods() {
     for (const key in person3) {
         if (key === 'shakes') {
