@@ -26,6 +26,7 @@ let person3 = {
 console.log('test')
 
 
+
 function displayFood1() {
     for(let i = 0; i < Object.keys(person3).length; i++){
         if(Array.isArray(Object.values(person3)[i])){
@@ -37,6 +38,28 @@ function displayFood1() {
 }
 
 displayFood1()
+
+function displayFavoriteFoods() {
+    for (const key in person3) {
+        if (key === 'shakes') {
+            console.log('Shakes:');
+            const shakesObj = person3[key][0];
+            for (const sName in shakesObj) {
+                console.log(`  -${sName}: ${shakesObj[sName]}`);
+            }
+        } else {
+            console.log(`${key}:`);
+            if (Array.isArray(person3[key])) {
+                person3[key].forEach(item => console.log(`  -${item}`));
+            } else {
+                console.log(`  -${person3[key]}`);
+            }
+        }
+    }
+}
+
+displayFavoriteFoods();
+
 
 
 
