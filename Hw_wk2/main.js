@@ -43,22 +43,20 @@ console.log('test')
 
 function displayFavoriteFoods() {
     for (const key in person3) {
-        if (key === 'shakes') {
-            console.log('Shakes:');
-            const shakesObj = person3[key][0];
-            for (const sName in shakesObj) {
-                console.log(`  -${sName}: ${shakesObj[sName]}`);
+        const value = person3[key];
+        if (Array.isArray(value)) {
+            value.forEach(item => console.log(item));
+        } else if (key === 'shakes') {
+            const shakes = value[0];
+            for (const name in shakes) {
+                console.log(shakes[name]);
             }
         } else {
-            console.log(`${key}:`);
-            if (Array.isArray(person3[key])) {
-                person3[key].forEach(item => console.log(`  -${item}`));
-            } else {
-                console.log(`  -${person3[key]}`);
-            }
+            console.log(value);
         }
     }
 }
+
 
 displayFavoriteFoods();
 
